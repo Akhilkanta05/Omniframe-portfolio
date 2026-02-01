@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Check if Firebase config is set
-    if (firebaseConfig.apiKey === "YOUR_API_KEY_HERE") {
-        return; // Wait for user to configure
-    } else {
-        document.getElementById('setup-warning').style.display = 'none';
-    }
+
 
     const loginSection = document.getElementById('login-section');
     const dashboardSection = document.getElementById('dashboard-section');
