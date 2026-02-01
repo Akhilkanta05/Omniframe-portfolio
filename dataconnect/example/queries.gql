@@ -1,0 +1,25 @@
+mutation CreateUser($displayName: String!, $email: String!) @auth(level: USER) {
+  user_insert(data: {displayName: $displayName, email: $email, createdAt_expr: "request.time", id_expr: "uuidV4()" })
+}
+
+query GetPublicAlbums @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  albums(where: {isPublic: {eq: true}}) {
+    id
+    name
+    description
+    coverPhotoUrl
+  }
+}
+
+mutation AddPhotoToAlbum($photoId: UUID!, $albumId: UUID!) @auth(level: USER) {
+  photoAlbum_insert(data: {photoId: $photoId, albumId: $albumId, createdAt_expr: "request.time"})
+}
+
+query GetPhotosForUser @auth(level: USER) {
+  photos(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    title
+    description
+    imageUrl
+  }
+}

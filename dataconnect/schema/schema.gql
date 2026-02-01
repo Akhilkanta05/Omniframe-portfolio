@@ -1,0 +1,52 @@
+type User @table {
+  displayName: String!
+  email: String!
+  createdAt: Timestamp!
+  bio: String
+  profilePictureUrl: String
+  location: String
+  websiteUrl: String
+}
+
+type Photo @table {
+  title: String!
+  imageUrl: String!
+  createdAt: Timestamp!
+  description: String
+  cameraModel: String
+  lensModel: String
+  aperture: String
+  shutterSpeed: String
+  iso: Int
+  locationTaken: String
+  user: User
+}
+
+type Album @table {
+  name: String!
+  createdAt: Timestamp!
+  isPublic: Boolean!
+  description: String
+  coverPhotoUrl: String
+  user: User
+}
+
+type PhotoAlbum @table(key: ["photo", "album"]) {
+  createdAt: Timestamp!
+  orderInAlbum: Int
+  photo: Photo!
+  album: Album!
+}
+
+type Comment @table {
+  text: String!
+  createdAt: Timestamp!
+  user: User
+  photo: Photo
+}
+
+type Like @table(key: ["user", "photo"]) {
+  createdAt: Timestamp!
+  user: User!
+  photo: Photo!
+}

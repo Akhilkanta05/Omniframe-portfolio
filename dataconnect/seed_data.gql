@@ -1,0 +1,46 @@
+mutation CreateSeedData @transaction @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      displayName: "demouser1",
+      email: "demouser1@example.com",
+      createdAt: "2024-01-01T00:00:00Z"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      displayName: "demouser2",
+      email: "demouser2@example.com",
+      createdAt: "2024-01-01T00:00:00Z"
+    }
+  ])
+  photo_insertMany(data: [
+    {
+      id: "650e8400-e29b-41d4-a716-446655440002",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      title: "Example Photo 1",
+      imageUrl: "http://example.com/photo1.jpg",
+      createdAt: "2024-01-02T00:00:00Z"
+    },
+    {
+      id: "750e8400-e29b-41d4-a716-446655440003",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      title: "Example Photo 2",
+      imageUrl: "http://example.com/photo2.jpg",
+      createdAt: "2024-01-03T00:00:00Z"
+    }
+  ])
+  comment_insertMany(data: [
+    {
+      photoId: "650e8400-e29b-41d4-a716-446655440002",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      text: "Great photo!",
+      createdAt: "2024-01-04T00:00:00Z"
+    },
+    {
+      photoId: "750e8400-e29b-41d4-a716-446655440003",
+      userId: "550e8400-e29b-41d4-a716-446655440001",
+      text: "Awesome!",
+      createdAt: "2024-01-05T00:00:00Z"
+    }
+  ])
+}

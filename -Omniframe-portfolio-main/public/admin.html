@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin - Photography Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="index.html" class="logo">Admin Panel</a>
+      <ul class="nav-links">
+        <li><a href="index.html">View Portfolio</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section class="section-padding">
+      <h2 class="section-title">Upload New Image</h2>
+      <form id="upload-form" class="admin-form">
+        <div class="form-group">
+          <label for="image-file">Select Image:</label>
+          <input type="file" id="image-file" name="image" accept="image/*" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Image</button>
+        <div id="upload-status" class="form-status"></div>
+      </form>
+      <div id="preview-container" style="margin-top: 20px;"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Your Name. Admin Panel.</p>
+    </div>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+</html>
