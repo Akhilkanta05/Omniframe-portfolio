@@ -1,4 +1,21 @@
 {
+  "name": "photography-portfolio",
+  "version": "1.0.0",
+  "description": "A portfolio website for photography work.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "photography",
+    "portfolio",
+    "firebase",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
   "dependencies": {
     "@dataconnect/generated": "file:src/dataconnect-generated",
     "firebase": "^12.8.0"
